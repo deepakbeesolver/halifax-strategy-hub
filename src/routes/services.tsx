@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Compass, Boxes, ShieldCheck, FileText, Network, Crosshair, Cpu, Scale, GraduationCap, Globe2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { services } from "@/data/services";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -14,19 +15,6 @@ export const Route = createFileRoute("/services")({
   }),
   component: Services,
 });
-
-const services = [
-  { icon: Compass, title: "Strategy Advisory", desc: "We translate ambition into a decision-ready picture for senior leaders. Strategy work is connected to risk, procurement, capability and governance rather than treated in isolation." },
-  { icon: Boxes, title: "Hardware & Systems Advisory", desc: "Discipline around equipment, supplier review, command-and-control, communications, sensors, sustainment and operational procedures — including sensitive or regulated categories." },
-  { icon: ShieldCheck, title: "Risk & Threat Assessment", desc: "Clear, practical and decision-focused risk understanding. Helping clients see what matters, what to escalate and when further specialist review is required." },
-  { icon: FileText, title: "Procurement Support", desc: "Procurement readiness, requirement notes, supplier information summaries, comparison material and structured tender preparation." },
-  { icon: Network, title: "Capability Development", desc: "Identifying gaps, clarifying dependencies and developing practical pathways for improvement — where organisations know more is needed but the route is unclear." },
-  { icon: Crosshair, title: "Cyber & Intelligence", desc: "Information-handling, governance, decision boundaries and proportionate engagement in sensitive technical environments." },
-  { icon: GraduationCap, title: "Training & Simulation", desc: "Defining training equipment requirements, simulation needs and the operational context that supports adoption and sustainment." },
-  { icon: Scale, title: "Policy & Compliance", desc: "Structured policy, controls and documentation. Compliance treated as a foundation for defence-facing work, not an afterthought." },
-  { icon: Cpu, title: "Technology Integration", desc: "Connecting systems, procedures and people across complex operational stacks — including where new technologies meet existing constraints." },
-  { icon: Globe2, title: "International Partnerships", desc: "Structured cross-border engagement: framing discussions, documenting actions, respecting information boundaries and identifying regulated activity early." },
-];
 
 function Services() {
   return (
@@ -48,8 +36,13 @@ function Services() {
       <section className="py-24">
         <div className="container-hdc">
           <div className="grid gap-7 md:grid-cols-2">
-            {services.map(({ icon: Icon, title, desc }) => (
-              <article key={title} className="rounded-lg border border-border bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:border-accent/60">
+            {services.map(({ slug, icon: Icon, title, desc }) => (
+              <Link
+                key={slug}
+                to="/services/$slug"
+                params={{ slug }}
+                className="group rounded-lg border border-border bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:border-accent/60"
+              >
                 <div className="flex items-start gap-5">
                   <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-accent-soft text-accent">
                     <Icon className="h-5 w-5" />
@@ -57,9 +50,12 @@ function Services() {
                   <div>
                     <h3 className="text-2xl">{title}</h3>
                     <p className="mt-3 text-foreground/80 leading-relaxed">{desc}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                      Read more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

@@ -74,6 +74,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Halifax Defence Consulting" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Halifax Defence Consulting | Strategic Defence & Government Advisory" },
+      { name: "twitter:title", content: "Halifax Defence Consulting | Strategic Defence & Government Advisory" },
+      { property: "og:description", content: "UK-based defence advisory and international liaison firm. Structured support for defence, security, procurement, capability and governance decisions." },
+      { name: "twitter:description", content: "UK-based defence advisory and international liaison firm. Structured support for defence, security, procurement, capability and governance decisions." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b350feef-2433-4452-b147-85bf9ea05331/id-preview-87033457--d9bdd662-a9ff-4ef1-b117-e883b725520c.lovable.app-1781174038948.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b350feef-2433-4452-b147-85bf9ea05331/id-preview-87033457--d9bdd662-a9ff-4ef1-b117-e883b725520c.lovable.app-1781174038948.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

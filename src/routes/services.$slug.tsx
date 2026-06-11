@@ -80,7 +80,7 @@ function ServiceDetail() {
             <div>
               <p className="eyebrow eyebrow-rule">Scope of work</p>
               <ul className="mt-6 space-y-3">
-                {service.scope.map((item) => (
+                {service.scope.map((item: string) => (
                   <li key={item} className="flex items-start gap-3 text-foreground/85">
                     <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
                     <span>{item}</span>
@@ -92,7 +92,7 @@ function ServiceDetail() {
             <div>
               <p className="eyebrow eyebrow-rule">Indicative deliverables</p>
               <ul className="mt-6 space-y-3">
-                {service.deliverables.map((item) => (
+                {service.deliverables.map((item: string) => (
                   <li key={item} className="flex items-start gap-3 text-foreground/85">
                     <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
                     <span>{item}</span>
